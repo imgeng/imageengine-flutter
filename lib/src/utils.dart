@@ -8,11 +8,11 @@ String constructUrl(String src, IEDirectives directives) {
 String generateOptimizedImageUrl(List<TSrcSetEntry> srcSet, double availableWidth, String deliveryAddress, String defaultSrc, int? defaultWidth, String? stripFromSrc, List<IEFormat> allowedExtensions) {
   var chosenEntry = chooseAppropriateImage(srcSet, availableWidth, defaultSrc, defaultWidth).first;
   final processedSrc = processUrl(chosenEntry.src, stripFromSrc, allowedExtensions);
-  final widthDirective = int.parse(chosenEntry.width.replaceAll("w", ""));
   final directives = chosenEntry.directives ?? IEDirectives();
   final finalDirectives = IEDirectives.fromMap({
     ...directives.toMap(),
-    'width': widthDirective,
+    if (chosenEntry.width != null)
+      'width': int.parse(chosenEntry.width!.replaceAll("w", "")),
   });
   return constructUrl(deliveryAddress + processedSrc, finalDirectives);
 }
@@ -32,10 +32,12 @@ String processUrl(String url, String? stripFromSrc, List<IEFormat> allowedExtens
 }
 
 List<TSrcSetEntry> chooseAppropriateImage(List<TSrcSetEntry> srcSet, double availableWidth, String defaultSrc, int? defaultWidth) {
+  TSrcSetEntry? bestFit;
   for (var entry in srcSet) {
-    if (availableWidth <= int.parse(entry.width.replaceAll('w', ''))) {
-      return [entry];
+    int entryWidth = int.parse(entry.width!.replaceAll('w', ''));
+    if (availableWidth >= entryWidth && (bestFit == null || entryWidth > int.parse(bestFit.width!.replaceAll('w', '')))) {
+      bestFit = entry;
     }
   }
-  return [TSrcSetEntry(src: defaultSrc, width: defaultWidth != null ? '${defaultWidth}w' : 'auto')];
+  return [bestFit ?? TSrcSetEntry(src: defaultSrc, width: defaultWidth?.toString())];
 }

@@ -33,7 +33,19 @@ class ResponsiveImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final imageUrl = generateOptimizedImageUrl(srcSet, constraints.maxWidth, deliveryAddress, src, width, stripFromSrc, allowedExtensions);
+        final targetWidth = constraints.maxWidth.isFinite 
+            ? constraints.maxWidth
+            : MediaQuery.of(context).size.width;
+
+        final imageUrl = generateOptimizedImageUrl(
+          srcSet,
+          targetWidth.toDouble(),
+          deliveryAddress,
+          src,
+          width,
+          stripFromSrc,
+          allowedExtensions,
+        );
         
         return Image.network(imageUrl);
       },

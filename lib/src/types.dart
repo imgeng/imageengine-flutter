@@ -3,12 +3,12 @@ import 'package:imageengine_helpers_dart/imageengine_helpers_dart.dart';
 
 class TSrcSetEntry {
   final String src;
-  final String width;
+  final String? width;
   final IEDirectives? directives;
 
   TSrcSetEntry({
     required this.src,
-    required this.width,
+    this.width,
     dynamic directives,
   }) : directives = directives is Map<String, dynamic>
             ? IEDirectives.fromMap(directives)
