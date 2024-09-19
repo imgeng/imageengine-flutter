@@ -17,7 +17,7 @@ Add to your `pubspec.yaml`:
 1. Import the package:
 
 ```dart
-import 'package:imageengine_flutter/imageengine_flutter_main.dart';
+import 'package:imageengine_flutter/imageengine_flutter.dart';
 ```
 
 2. Use the `ResponsiveImage` widget:
