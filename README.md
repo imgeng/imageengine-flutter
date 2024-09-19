@@ -1,39 +1,48 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# ImageEngine Flutter
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Hassle-free optimized responsive images for Flutter applications.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Responsive image loading
+- Image optimization with directives
+- Automatic srcSet handling
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add to your `pubspec.yaml`:
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+1. Import the package:
 
 ```dart
-const like = 'sample';
+import 'package:imageengine_flutter/imageengine_flutter_main.dart';
 ```
+
+2. Use the `ResponsiveImage` widget:
+
+```dart
+ResponsiveImage(
+  src: '/images/pic_1_variation_2.jpg',
+  srcSet: [
+    TSrcSetEntry(
+      src: '/images/pic_1_variation_1.jpg',
+      directives: {'rotate': 180},
+      width: '500w',
+    ),
+    TSrcSetEntry(
+      src: '/images/pic_1_variation_2.jpg',
+      directives: {'rotate': 180},
+      width: '900w',
+    ),
+  ],
+  deliveryAddress: 'https://blazing-fast-pics.cdn.imgeng.in',
+)
+
+
+For a complete example, see the `example` folder.
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+...
