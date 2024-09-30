@@ -15,18 +15,6 @@ class TSrcSetEntry {
             : directives as IEDirectives?;
 }
 
-class TImageEngineProvider {
-  final Widget child;
-  final String deliveryAddress;
-  final String? stripFromSrc;
-
-  TImageEngineProvider({
-    required this.child,
-    required this.deliveryAddress,
-    this.stripFromSrc,
-  });
-}
-
 class TImageProps {
   final String src;
   final IEDirectives? directives;
@@ -38,23 +26,5 @@ class TImageProps {
     this.directives,
     this.srcSet,
     this.otherProps,
-  });
-}
-
-class TSourceProps {
-  final List<TSrcSetEntry> srcSet;
-  final Map<String, dynamic>? otherProps;
-
-  TSourceProps({
-    required this.srcSet,
-    this.otherProps,
-  });
-}
-
-class TPictureProps {
-  final List<Widget> children;
-
-  TPictureProps({
-    required this.children,
   });
 }
