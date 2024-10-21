@@ -34,7 +34,6 @@ String processUrl(String url, String? stripFromSrc, List<IEFormat> allowedExtens
 List<TSrcSetEntry> chooseAppropriateImage(List<TSrcSetEntry> srcSet, double availableWidth, String defaultSrc, int? defaultWidth) {
   TSrcSetEntry? bestFit;
   for (var entry in srcSet) {
-    if (entry == null) continue;
     int entryWidth = int.parse(entry.width!.replaceAll('w', ''));
     if (availableWidth >= entryWidth && (bestFit == null || entryWidth > int.parse(bestFit.width!.replaceAll('w', '')))) {
       bestFit = entry;
