@@ -4,16 +4,18 @@ import 'package:imageengine_flutter/imageengine_flutter_main.dart';
 
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('Shopping Cart')),
-        body: ShoppingCart(),
+        appBar: AppBar(title: const Text('Shopping Cart')),
+        body: const ShoppingCart(),
       ),
     );
   }
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
 
 class ShoppingCart extends StatelessWidget {
   final String deliveryAddress = 'https://blazing-fast-pics.cdn.imgeng.in';
+
+  const ShoppingCart({super.key});
 
   @override
   Widget build(BuildContext context) {
