@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:imageengine_helpers_dart/imageengine_helpers_dart.dart';
 
 class TSrcSetEntry {
