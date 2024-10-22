@@ -1,6 +1,5 @@
 import 'package:imageengine_flutter/imageengine_flutter_main.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:imageengine_flutter/src/utils.dart';
 import 'package:imageengine_helpers_dart/imageengine_helpers_dart.dart';
 
 void main() {
