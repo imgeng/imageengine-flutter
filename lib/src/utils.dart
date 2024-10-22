@@ -1,5 +1,6 @@
 import 'package:imageengine_helpers_dart/imageengine_helpers_dart.dart';
 import 'types.dart';
+import 'package:logging/logging.dart';
 
 String constructUrl(String src, IEDirectives directives) {
   return buildIEUrl(src, directives);
@@ -26,7 +27,8 @@ String processUrl(String url, String? stripFromSrc, List<IEFormat> allowedExtens
     (format) => format.toString().split('.').last == extension,
     orElse: () => IEFormat.jpg,
   ))) {
-    print('Warning: Unsupported image format: $extension');
+    final logger = Logger('ImageProcessor');
+    logger.warning('Unsupported image format: $extension');
   }
   return url;
 }
