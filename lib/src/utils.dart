@@ -39,7 +39,9 @@ List<TSrcSetEntry> chooseAppropriateImage(List<TSrcSetEntry> srcSet, double avai
       bestFit = entry;
     }
   }
-  if (bestFit != null && int.parse(bestFit.width!.replaceAll('w', '')) < defaultWidth! && defaultWidth < availableWidth) {
+  if (bestFit != null && bestFit.width != null && defaultWidth != null &&
+      int.parse(bestFit.width!.replaceAll('w', '')) < defaultWidth &&
+      defaultWidth < availableWidth) {
     bestFit = null;
   }
   return [bestFit ?? TSrcSetEntry(src: defaultSrc, width: defaultWidth?.toString(), directives: IEDirectives())];
