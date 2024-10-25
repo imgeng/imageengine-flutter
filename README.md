@@ -43,6 +43,4 @@ ResponsiveImage(
 
 For a complete example, see the `example` folder.
 
-## Additional information
 
-...
