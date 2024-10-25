@@ -1,6 +1,6 @@
 name: imageengine_flutter
 description: "Flutter package for optimized responsive images."
-version: 0.0.1
+version: 0.0.1+1
 homepage: https://github.com/imageengine/imageengine-flutter
 
 environment:
