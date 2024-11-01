@@ -1,0 +1,30 @@
+name: Create Release and Publish
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  release:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Read version
+        id: version
+        uses: docker://mikefarah/yq:4
+        with:
+          cmd: yq '.version' pubspec.yaml
+          
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.result }}
+          generate_release_notes: true
+
+      - name: Publish to pub.dev
+        run: dart pub publish --force
+        env:
+          PUB_DEV_TOKEN: ${{ secrets.PUB_DEV_TOKEN }}
