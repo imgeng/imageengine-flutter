@@ -1,1 +1,7 @@
+# Generated files
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+
+# Example folder
 example/
