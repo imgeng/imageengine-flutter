@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cached_network_image: ^3.2.3  
+  cached_network_image: ^4.0.0  
   imageengine_helpers_dart: ^1.0.2
   logger: ^2.4.0  
 
